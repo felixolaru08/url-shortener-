@@ -95,6 +95,7 @@ header {
     margin: 0 auto;
 }
 
+/* Uniamo i due blocchi del logo in uno solo, mantenendo il tuo stile originale */
 .logo {
     font-size: 1.1rem;
     font-weight: 300;
@@ -102,7 +103,7 @@ header {
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none; 
-    color: inherit;    
+    white-space: nowrap; /* Impedisce al logo di andare a capo */
     cursor: pointer;      
 }
 
@@ -120,31 +121,21 @@ header {
     gap: 20px; /* Spazio vuoto tra il logo e l'inizio delle linee */
 }
 
-/* Rende il logo un elemento flessibile e resetta lo stile del link */
-.logo {
-    text-decoration: none;
-    color: inherit; /* Cambialo con il colore del tuo logo se necessario (es. #333) */
-    font-size: 24px; /* Regola la dimensione come preferisci */
-    white-space: nowrap; /* Impedisce al logo di andare a capo */
-    cursor: pointer;
-}
-
 /* Crea la linea di sinistra */
 .logo-container::before {
     content: "";
-    flex: 1; /* Fa sì che la linea occupi tutto lo spazio disponibile a sinistra */
-    height: 2px; /* Spessore della linea */
-    background-color: #cccccc00; /* Colore della linea (puoi cambiarlo) */
+    flex: 1; 
+    height: 1px; /* Spessore della linea (1px o 2px per farla fine ed elegante) */
+    background-color: #e0e0e0; /* Rimosso lo '00' finale: ora la linea è visibile! */
 }
 
 /* Crea la linea di destra */
 .logo-container::after {
     content: "";
-    flex: 1; /* Fa sì che la linea occupi tutto lo spazio disponibile a destra */
-    height: 2px; /* Spessore della linea */
-    background-color: #cccccc00; /* Colore della linea (puoi cambiarlo) */
+    flex: 1; 
+    height: 1px; 
+    background-color: #e0e0e0; /* Rimosso lo '00' finale */
 }
-
 .container {
     max-width: 900px;
     margin: 0 auto;
