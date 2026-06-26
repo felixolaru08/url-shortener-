@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <span class="logo">URL<strong>SHORT</strong></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Accorcia i tuoi link</h1>
+            <p class="subtitle">Trasforma URL lunghi in link brevi e condivisibili</p>
+        </div>
+
+        <div class="form-box">
+            <form action="/crea" method="POST">
+                <input type="text" name="url_lungo" placeholder="Incolla il tuo link qui (es. https://...)">
+                <div class="date-group">
+                    <label>Data di scadenza (opzionale)</label>
+                    <input type="date" name="scadenza">
+                </div>
+                <button type="submit">Accorcia</button>
+            </form>
+
+            {% if errore %}
+                <p class="errore">{{ errore }}</p>
+            {% endif %}
+
+            {% if codice %}
+                <div class="successo">
+                    <span class="successo-label">Link generato</span>
+                    <a href="/{{ codice }}">http://127.0.0.1:5000/{{ codice }}</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="table-section">
+            <h2>Link creati</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL originale</th>
+                        <th>Link breve</th>
+                        <th>Click</th>
+                        <th>Data creazione</th>
+                        <th>Scadenza</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for link in links %}
+                    <tr>
+                        <td data-label="URL originale">{{ link[0][:40] }}...</td>
+                        <td data-label="Link breve"><a href="/{{ link[1] }}">{{ link[1] }}</a></td>
+                        <td data-label="Click">{{ link[2] }}</td>
+                        <td data-label="Data">{{ link[3][:10] }}</td>
+                        <td data-label="Scadenza">{{ link[4] or "Nessuna" }}</td>
+                        <td data-label="Azioni"><a class="elimina" href="/elimina/{{ link[1] }}">Elimina</a></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="empty">Nessun link creato ancora.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>URL Shortener — Felix Olaru</p>
+    </footer>
+</body>
+</html>
