@@ -111,6 +111,40 @@ header {
     font-weight: 600;
 }
 
+/* Centra il contenitore del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px; /* Spazio vuoto tra il logo e l'inizio delle linee */
+}
+
+/* Rende il logo un elemento flessibile e resetta lo stile del link */
+.logo {
+    text-decoration: none;
+    color: inherit; /* Cambialo con il colore del tuo logo se necessario (es. #333) */
+    font-size: 24px; /* Regola la dimensione come preferisci */
+    white-space: nowrap; /* Impedisce al logo di andare a capo */
+    cursor: pointer;
+}
+
+/* Crea la linea di sinistra */
+.logo-container::before {
+    content: "";
+    flex: 1; /* Fa sì che la linea occupi tutto lo spazio disponibile a sinistra */
+    height: 2px; /* Spessore della linea */
+    background-color: #cccccc00; /* Colore della linea (puoi cambiarlo) */
+}
+
+/* Crea la linea di destra */
+.logo-container::after {
+    content: "";
+    flex: 1; /* Fa sì che la linea occupi tutto lo spazio disponibile a destra */
+    height: 2px; /* Spessore della linea */
+    background-color: #cccccc00; /* Colore della linea (puoi cambiarlo) */
+}
+
 .container {
     max-width: 900px;
     margin: 0 auto;
