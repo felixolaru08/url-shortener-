@@ -5,8 +5,8 @@
 }
 
 body {
-    background-color: #080808;
-    color: #999;
+    background-color: #f8f8f8;
+    color: #555;
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* FORME GEOMETRICHE */
 body::before {
     content: "";
     position: fixed;
@@ -22,7 +21,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
     z-index: -1;
@@ -35,7 +34,7 @@ body::after {
     right: -200px;
     width: 500px;
     height: 500px;
-    border: 1px solid rgba(255, 255, 255, 0.772);
+    border: 1px solid rgba(0,0,0,0.772);
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
@@ -47,7 +46,7 @@ body::after {
     left: -150px;
     width: 400px;
     height: 400px;
-    border: 1px solid rgba(255, 255, 255, 0.772);
+    border: 1px solid rgba(0,0,0,0.772);
     transform: rotate(45deg);
     pointer-events: none;
     z-index: -1;
@@ -60,7 +59,7 @@ body::after {
     left: 40px;
     right: 40px;
     bottom: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.772);
+    border: 1px solid rgba(0,0,0,0.772);
 }
 
 .geo-right {
@@ -69,7 +68,7 @@ body::after {
     right: -100px;
     width: 250px;
     height: 250px;
-    border: 1px solid rgba(255, 255, 255, 0.772);
+    border: 1px solid rgba(0,0,0,0.772);
     transform: rotate(20deg);
     pointer-events: none;
     z-index: -1;
@@ -82,13 +81,12 @@ body::after {
     left: 30px;
     right: 30px;
     bottom: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.772);
+    border: 1px solid rgba(0,0,0,0.772);
     transform: rotate(45deg);
 }
 
-/* HEADER */
 header {
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #e0e0e0;
     padding: 20px 40px;
 }
 
@@ -106,11 +104,10 @@ header {
 }
 
 .logo strong {
-    color: #ffffff;
+    color: #000000;
     font-weight: 600;
 }
 
-/* CONTAINER */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -118,7 +115,6 @@ header {
     flex: 1;
 }
 
-/* HERO */
 .hero {
     text-align: center;
     margin-bottom: 50px;
@@ -127,22 +123,21 @@ header {
 h1 {
     font-size: 2.8rem;
     font-weight: 300;
-    color: #e0e0e0;
+    color: #111;
     letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
 .subtitle {
     font-size: 0.95rem;
-    color: #666;
+    color: #888;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
 
-/* FORM BOX */
 .form-box {
-    background-color: #0f0f0f;
-    border: 1px solid #1e1e1e;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
     border-radius: 16px;
     padding: 36px;
     margin-bottom: 60px;
@@ -163,7 +158,7 @@ form {
 
 .date-group label {
     font-size: 0.72rem;
-    color: #555;
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -172,10 +167,10 @@ input[type="text"], input[type="date"] {
     flex: 1;
     min-width: 0;
     padding: 14px 18px;
-    background-color: #141414;
-    border: 1px solid #222;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    color: #e0e0e0;
+    color: #111;
     font-size: 0.9rem;
     font-family: 'Inter', sans-serif;
     outline: none;
@@ -184,17 +179,17 @@ input[type="text"], input[type="date"] {
 }
 
 input[type="text"]:focus, input[type="date"]:focus {
-    border-color: #444;
+    border-color: #aaa;
 }
 
 input::placeholder {
-    color: #444;
+    color: #bbb;
 }
 
 button {
     padding: 14px 28px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 0.9rem;
@@ -207,7 +202,7 @@ button {
 }
 
 button:hover {
-    background-color: #e0e0e0;
+    background-color: #333;
 }
 
 button:active {
@@ -215,12 +210,11 @@ button:active {
 }
 
 .errore {
-    color: #ff4444;
+    color: #cc0000;
     margin-top: 16px;
     font-size: 0.85rem;
 }
 
-/* SUCCESSO */
 @keyframes slideIn {
     0% {
         opacity: 0;
@@ -238,8 +232,8 @@ button:active {
 .successo {
     margin-top: 20px;
     padding: 16px 20px;
-    background-color: #111;
-    border: 1px solid #2a2a2a;
+    background-color: #eeeeee;
+    border: 1px solid #ddd;
     border-radius: 10px;
     animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     display: flex;
@@ -249,13 +243,13 @@ button:active {
 
 .successo-label {
     font-size: 0.7rem;
-    color: #555;
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .successo a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -266,10 +260,9 @@ button:active {
     text-decoration: underline;
 }
 
-/* TABLE */
 .table-section h2 {
     font-size: 0.8rem;
-    color: #666;
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 16px;
@@ -279,18 +272,18 @@ button:active {
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #0f0f0f;
-    border: 1px solid #1a1a1a;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
     border-radius: 16px;
     overflow: hidden;
 }
 
 th {
-    background-color: #111;
+    background-color: #e8e8e8;
     padding: 14px 18px;
     text-align: left;
     font-size: 0.72rem;
-    color: #666;
+    color: #888;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 400;
@@ -298,14 +291,14 @@ th {
 
 td {
     padding: 16px 18px;
-    border-top: 1px solid #141414;
+    border-top: 1px solid #e0e0e0;
     font-size: 0.88rem;
-    color: #888;
+    color: #555;
     word-break: break-all;
 }
 
 td a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -314,28 +307,26 @@ td a:hover {
 }
 
 .elimina {
-    color: #ff4444 !important;
+    color: #cc0000 !important;
     font-size: 0.82rem;
 }
 
 .empty {
     text-align: center;
-    color: #444;
+    color: #aaa;
     padding: 40px !important;
     font-size: 0.85rem;
 }
 
-/* FOOTER */
 footer {
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #e0e0e0;
     padding: 20px 40px;
     text-align: center;
     font-size: 0.75rem;
-    color: #444;
+    color: #aaa;
     letter-spacing: 1px;
 }
 
-/* TABLET */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     .form-box { padding: 24px; }
@@ -343,7 +334,6 @@ footer {
     button { width: 100%; }
 }
 
-/* MOBILE */
 @media (max-width: 480px) {
     h1 { font-size: 1.6rem; }
     body { padding: 0; }
@@ -354,8 +344,8 @@ footer {
     thead { display: none; }
 
     tr {
-        background-color: #0f0f0f;
-        border: 1px solid #1a1a1a;
+        background-color: #f0f0f0;
+        border: 1px solid #e0e0e0;
         border-radius: 12px;
         margin-bottom: 12px;
         padding: 14px;
@@ -371,7 +361,7 @@ footer {
 
     td::before {
         content: attr(data-label);
-        color: #444;
+        color: #aaa;
         font-size: 0.7rem;
         text-transform: uppercase;
         letter-spacing: 1px;
