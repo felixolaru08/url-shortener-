@@ -101,6 +101,9 @@ header {
     color: #888;
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-decoration: none; 
+    color: inherit;    
+    cursor: pointer;      
 }
 
 .logo strong {
