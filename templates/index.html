@@ -57,7 +57,7 @@
                     {% for link in links %}
                     <tr>
                         <td data-label="URL originale">{{ link[0][:40] }}...</td>
-                        <td data-label="Link breve"><a href="/{{ link[1] }}">{{ link[1] }}</a></td>
+                        <td data-label="Link breve"><a href="/{{ link[1] }}" target="_blank">{{ link[1] }}</a></td>
                         <td data-label="Click">{{ link[2] }}</td>
                         <td data-label="Data">{{ link[3][:10] }}</td>
                         <td data-label="Scadenza">{{ link[4] or "Nessuna" }}</td>
