@@ -3,81 +3,78 @@
 <head>
     <title>URL Shortener</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
 </head>
 <body>
-    <div class="geo-left"></div>
-    <div class="geo-right"></div>
+
     <header>
-        <div class="header-inner logo-container">
-            <a href="/" class="logo">URL<strong>SHORT</strong></a>
-        </div>
+        <h1>URL Shortener</h1>
     </header>
 
     <div class="container">
-        <div class="hero">
-            <h1>Accorcia i tuoi link</h1>
-            <p class="subtitle">Trasforma URL lunghi in link brevi e condivisibili</p>
-        </div>
 
-        <div class="form-box">
+        <h2>Accorcia i tuoi link</h2>
+        <p>Trasforma un link lungo in uno corto</p>
+
+        <div class="box1">
             <form action="/crea" method="POST">
-                <input type="text" name="url_lungo" placeholder="Incolla il tuo link qui (es. https://...)">
-                <div class="date-group">
-                    <label>Data di scadenza (opzionale)</label>
-                    <input type="date" name="scadenza">
-                </div>
+                <input type="text" name="url_lungo" placeholder="Incolla qui il link (es. https://...)">
+                <br><br>
+                <label>Data di scadenza (opzionale):</label>
+                <input type="date" name="scadenza">
+                <br><br>
                 <button type="submit">Accorcia</button>
             </form>
 
             {% if errore %}
-                <p class="errore">{{ errore }}</p>
+                <p style="color: red;">{{ errore }}</p>
             {% endif %}
 
             {% if codice %}
-                <div class="successo">
-                    <span class="successo-label">Link generato</span>
-                    <a href="/{{ codice }}">http://127.0.0.1:5000/{{ codice }}</a>
-                </div>
+                <p style="color: green;">
+                    Link generato: <a href="/{{ codice }}">http://127.0.0.1:5000/{{ codice }}</a>
+                </p>
             {% endif %}
         </div>
 
-        <div class="table-section">
-            <h2>Link creati</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>URL originale</th>
-                        <th>Link breve</th>
-                        <th>Click</th>
-                        <th>Data creazione</th>
-                        <th>Scadenza</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for link in links %}
-                    <tr>
-                        <td data-label="URL originale">{{ link[0][:40] }}...</td>
-                        <td data-label="Link breve"><a href="/{{ link[1] }}" target="_blank">{{ link[1] }}</a></td>
-                        <td data-label="Click">{{ link[2] }}</td>
-                        <td data-label="Data">{{ link[3][:10] }}</td>
-                        <td data-label="Scadenza">{{ link[4] or "Nessuna" }}</td>
-                        <td data-label="Azioni"><a class="elimina" href="/elimina/{{ link[1] }}">Elimina</a></td>
-                    </tr>
+        <h2>I miei link</h2>
+
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>URL originale</th>
+                <th>Link breve</th>
+                <th>Click</th>
+                <th>Data creazione</th>
+                <th>Scadenza</th>
+                <th>Azioni</th>
+            </tr>
+
+            {% for link in links %}
+            <tr>
+                <td>{{ link[0][:40] }}...</td>
+                <td><a href="/{{ link[1] }}" target="_blank">{{ link[1] }}</a></td>
+                <td>{{ link[2] }}</td>
+                <td>{{ link[3][:10] }}</td>
+                <td>
+                    {% if link[4] %}
+                        {{ link[4] }}
                     {% else %}
-                    <tr>
-                        <td colspan="6" class="empty">Nessun link creato ancora.</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                        Nessuna
+                    {% endif %}
+                </td>
+                <td><a href="/elimina/{{ link[1] }}">Elimina</a></td>
+            </tr>
+            {% endfor %}
+
+            {% if links|length == 0 %}
+            <tr>
+                <td colspan="6">Nessun link creato ancora.</td>
+            </tr>
+            {% endif %}
+        </table>
+
     </div>
 
-    <footer>
-        <p>URL Shortener — Felix Olaru</p>
-    </footer>
+    <p style="text-align:center; margin-top: 30px;">URL Shortener - Felix Olaru</p>
+
 </body>
 </html>
